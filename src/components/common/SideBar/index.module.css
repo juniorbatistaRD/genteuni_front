@@ -1,0 +1,46 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    height: 100vh;
+    top: 0;
+    width: 200px;
+}
+
+
+.close-button{
+    width:25px;
+    margin:10px;
+}
+
+.avatar{
+    margin: auto;
+    margin-top: 25px;
+}
+
+.username{
+    text-align: center;
+    font-size: large;
+    color: #5d5d5d;
+}
+
+
+.menu{
+    margin-top: 40px;
+    list-style: none;
+}
+
+.menu-icon{
+    width:20px;
+}
+
+.menu li{
+    display: flex;
+    padding:15px;
+}
+
+.menu li span{
+    margin-left: 10px;
+    font-size: 20px;
+}

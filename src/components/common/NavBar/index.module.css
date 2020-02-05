@@ -1,0 +1,57 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    background-color: cornflowerblue;
+    justify-content: space-between;
+    box-shadow: -1px 2px 3px 0px #80808085;
+}
+
+.menu-button{
+    display: none;
+}
+
+.left-side{
+    flex:1;
+}
+
+.search-bar-container{
+    flex:3;
+    display: flex;
+    justify-content: center;
+}
+
+
+.right-side{
+    display: flex;
+    flex:1;
+    margin-right: 10px;
+}
+
+
+/* Device = Most of the Smartphones Mobiles (Portrait) and Low Resolution tablets
+  Screen = B/w 320px to 767px
+*/ 
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .search-bar-container{
+       display: none;
+    }
+
+    .logo{
+        display: none;
+    }
+
+    .menu-button{
+        margin-left: 10px;
+        display: flex;
+    }
+    
+    .right-side{
+        justify-content:flex-end
+    }
+
+  
+}
