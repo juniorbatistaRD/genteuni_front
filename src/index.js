@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 
 
 //Initialize Parse Server SDK
-Parse.serverURL = process.env.NODE_ENV !== 'production' ? 'https://parseapi.back4app.com/' : 'http://localhost:4040'
+Parse.serverURL = process.env.NODE_ENV !== 'production' ? 'http://localhost:1337/parse' : 'https://parseapi.back4app.com/'
 Parse.initialize("OUr4laQTLAlCcXBV8uJcEDilfeK42siE5FKEuSC5", "sFgerkhqDaXERMxKLI7k7ccD4dZBkH78yo8gd4n3");
 
 

@@ -6,10 +6,10 @@ import InputField from '../InputField'
 import styles from './index.module.css'
 import searchIcon from '../../../assets/icons/search.svg'
 
-function SearchBar() {
+function SearchBar({className}) {
 
     return(
-        <div>
+        <div className={className}>
                 <Formik
                 initialValues={{
                     search:''
@@ -44,6 +44,8 @@ function SearchBar() {
     )
 }
 
-
+SearchBar.defaultProps ={
+    className: ' '
+}
 
 export default SearchBar

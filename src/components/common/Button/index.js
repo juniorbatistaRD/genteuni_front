@@ -22,8 +22,8 @@ function Button({children, typeStyle, className,onClick,width,padding,margin,loa
         >   
             {loading ? 
                 <>
-                    <img src={loadingCircle} width="25" alt="loading"/>
-                    <span>Cargando...</span> 
+                    <span>Cargando...</span>
+                    <img src={loadingCircle} width="25" alt="loading"/> 
                 </>
                 : children}
         </button>

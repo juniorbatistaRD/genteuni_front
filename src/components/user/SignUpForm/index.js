@@ -13,6 +13,8 @@ import showAlert from '../../../helpers/showAlert/showAlert'
 
 function SignUpForm (){
     const { setCurrentUser} = useContext(AuthContext)
+    
+
     return(
         <div className={styles.container}>
             <Formik
@@ -26,8 +28,8 @@ function SignUpForm (){
                 validationSchema={Yup.object({
                     
                     username: Yup.string()
-                    .min('6', 'Tu nombre de usuario debe de ser mayor de 6 caracteres')
-                    .max('15', 'Tu nombre de usuario es demasiado largo')
+                    .min('4', 'Tu nombre de usuario debe de ser mayor de 4 caracteres')
+                    .max('30', 'Tu nombre de usuario es demasiado largo')
                     .required('Tu nombre es re-querido'),
                     
                     email: Yup.string()

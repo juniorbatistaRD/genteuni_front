@@ -9,9 +9,6 @@
     box-shadow: -1px 2px 3px 0px #80808085;
 }
 
-.menu-button{
-    display: none;
-}
 
 .left-side{
     flex:1;
@@ -42,11 +39,6 @@
 
     .logo{
         display: none;
-    }
-
-    .menu-button{
-        margin-left: 10px;
-        display: flex;
     }
     
     .right-side{

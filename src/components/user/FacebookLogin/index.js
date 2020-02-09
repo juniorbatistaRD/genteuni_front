@@ -17,7 +17,7 @@ function FacebookLogin ({className}){
               appId      : '954266884973298', // Facebook App ID
               cookie     : true,  // enable cookies to allow Parse to access the session
               xfbml      : true,  // initialize Facebook social plugins on the page
-              version    : 'v5.0' // point to the latest Facebook Graph API version
+              version    : 'v6.0' // point to the latest Facebook Graph API version
             });
             // Run code after the Facebook SDK is loaded.
             // ...
@@ -34,29 +34,29 @@ function FacebookLogin ({className}){
     },[])
 
     const login = async () => {
+        setLoading(true)
         try{
-            setLoading(true)
-            const user = await Parse.FacebookUtils.logIn("user_gender,email")
+            const user = await Parse.FacebookUtils.logIn("user_gender,email, education")
             
-            //if new user register and login
+            //if a new user register and login
             if (!user.existed()){
-                window.FB.api('/me?fields=id,name,email,gender,picture.width(480),permissions', function (response) {
-                    
-                    saveFacebookImage(response.picture.data.url, user)
+                window.FB.api('/me?fields=id, name,email,gender,picture.width(480), permissions', async function (response) {
+                        
+                    const facebookImage =  await getFacebookImage(response.picture.data.url, user)
 
                     user.set('username', response.id);
                     user.set('email', response.email);
                     user.set('gender', response.gender);
+                    user.set('profilePicture', facebookImage)
                     user.save()
                     .then(()=>{
-                        setLoading(false)
                         setCurrentUser(Parse.User.current())
+                        setLoading(false)
                         navigate('/home')
                     })
                 })
             }else{
                 //if user existed login him/her in
-                setLoading(false)
                 setCurrentUser(Parse.User.current())
             }
         }
@@ -67,7 +67,7 @@ function FacebookLogin ({className}){
 
     }       
     
-    const saveFacebookImage = async (url, user) => {
+    const getFacebookImage = async (url) => {
         let response = await fetch(url);
         let data = await response.blob();
         let metadata = {
@@ -76,11 +76,8 @@ function FacebookLogin ({className}){
 
         let file = new File([data], "test.jpg", metadata);
 
-
-        var newfile = new Parse.File("facebookProfileImage.jpg", file, "image/jpg");
+        return new Parse.File("facebookProfileImage.jpg", file, "image/jpg");  
         
-        user.set('profilePicture', newfile)
-        user.save()
     }
     
     return(
