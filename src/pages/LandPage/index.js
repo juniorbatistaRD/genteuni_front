@@ -10,7 +10,7 @@ function LandPage(){
 
     useEffect(()=>{
         if(currentUser !== null){
-            navigate('/home')
+            navigate('/app')
         }
     },[currentUser])
     

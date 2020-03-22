@@ -12,18 +12,24 @@ import loveIcon from '../../../assets/icons/love.svg'
 import workIcon from '../../../assets/icons/work.svg'
 import settingsIcon from '../../../assets/icons/settings.svg'
 import SearchBar from '../SearchBar'
+import { navigate } from '@reach/router'
 
 
-function SideBar({setMenuOpen, ...props}){
+function SideBar({setMenuOpen, className, ...props}){
     const {currentUser} = useContext(AuthContext)
-    
-    return(
-        <div className={styles.container}>
-            {setMenuOpen && (
 
-                <img src={arrowIcon} className={styles['close-button']} alt="close" onClick={() => {setMenuOpen(false)}}/>
+    const goTo= (link) => {
+        navigate(link)
+        if(setMenuOpen){
+            setMenuOpen(false)
+        }
+    }
+
+    return(
+        <div className={className}>
             
-            )}
+            <img src={arrowIcon} className={styles['close-button']} alt="close" onClick={() => {setMenuOpen(false)}}/>
+           
            {currentUser && (
             <>
                 <Avatar width="100px" className={styles.avatar} image={currentUser.get('profilePicture') && currentUser.get('profilePicture').url()}/>
@@ -33,7 +39,9 @@ function SideBar({setMenuOpen, ...props}){
             <SearchBar className={styles.searchbar}/>
 
             <ul className={styles.menu}>
-                <li>
+                <li onClick={() => {
+                    goTo('/app')
+                }}>
                     <img alt="option" className={styles['menu-icon']} src={homeIcon}/><span>Inicio</span>
                 </li>
                 <li>
@@ -57,7 +65,9 @@ function SideBar({setMenuOpen, ...props}){
             </ul>
 
             <div className={styles.footer}>
-                <div className={styles['settingsOption']}>
+                <div className={styles['settingsOption']} onClick={() => {
+                    goTo('/app/settings')
+                }}>
                     <img alt="option" className={styles['menu-icon']} src={settingsIcon}/>
                     <span>Adjustes</span>
                 </div>
@@ -65,6 +75,11 @@ function SideBar({setMenuOpen, ...props}){
             </div>
         </div>
     )
+}
+
+
+SideBar.defaultProps = {
+    className: styles.container
 }
 
 

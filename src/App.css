@@ -9,6 +9,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body{
+  height:100%;
+
+}
+
 button{
   font-family: 'Nunito', sans-serif;
 

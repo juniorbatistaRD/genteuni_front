@@ -4,6 +4,8 @@ import {Router} from '@reach/router'
 import LandPage from './pages/LandPage';
 import AuthContextProvider from './contexts/AuthContext';
 import HomePage from './pages/HomePage';
+import SettingPage from './pages/SettingPage';
+import MainLayout from './layouts/MainLayout';
 
 function App() {
   return (
@@ -12,7 +14,10 @@ function App() {
         <Router>
           <LandPage path="/"/>
           <LandPage path="/auth/*"/>
-          <HomePage path="/home/*"/>
+          <MainLayout path="app">
+            <HomePage path="/"/>
+            <SettingPage path="/settings/*"/>
+          </MainLayout>
         </Router>
       </AuthContextProvider>
     </div>

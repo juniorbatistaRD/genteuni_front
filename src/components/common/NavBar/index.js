@@ -5,7 +5,7 @@ import NotificationBell from './NotificationBell'
 import MessagesBell from './MessagesBell'
 import SearchBar from '../SearchBar'
 import Logo from '../Logo'
-import AvatarNavBar from './AvatarNavBar'
+import Avatar from './../Avatar'
 import MenuButton from '../MenuButton'
 
 
@@ -29,7 +29,7 @@ function NavBar(){
                     <>
                         <NotificationBell/>
                         <MessagesBell/>
-                        <AvatarNavBar/>
+                        <Avatar className={styles.avatar}   image={currentUser.get('profilePicture') && currentUser.get('profilePicture').url()}/>
                     </>
                     ):
                     <span>Inicia Sesion!</span>

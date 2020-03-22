@@ -1,33 +1,29 @@
-import React from 'react'
-import defaultImage from '../../../assets/images/default_avatar.jpg'
-import styles from './index.module.css'
+import React from "react";
+import defaultImage from "../../../assets/images/default_avatar.jpg";
+import styles from "./index.module.css";
 
-function Avatar({image , width , ...props}){
+function Avatar({ image, width, ...props }) {
+  const classNames = [styles.avatar, props.className].join(" ");
 
-    const classNames = [styles.avatar , props.className].join(' ') 
-    
-    return (
-        <div className={styles.container}>
-            <img
-                style={{
-                    width 
-                }} 
-                src={image}  
-                className={classNames} 
-                alt="Profile Avatar"/>
-        </div>
-    )
-
+  return (
+    <div className={styles.container}>
+      <img
+        style={{
+          width,
+          height: width
+        }}
+        src={image ? image : defaultImage}
+        className={classNames}
+        alt="Profile Avatar"
+      />
+    </div>
+  );
 }
 
+Avatar.defaultProps = {
+  image: defaultImage,
+  width: "45px",
+  className: " "
+};
 
-Avatar.defaultProps ={
-    image: defaultImage,
-    width: '45px',
-    className:' '
-}
-
-
-export default Avatar
-
-
+export default Avatar;

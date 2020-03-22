@@ -13,6 +13,8 @@
 }
 
 .form input{
+    background-color: #f4f4f4
+    ;
     margin: 10px 0px;
     padding: 15px;
 
@@ -21,25 +23,6 @@
 .text{
     font-size: 12px;
 }
-/* 
-#button{
-    padding: 12px;
-    flex:2;
-}
-
-#LoginFrom_Facebook img{
-    margin-left:5px;
-}
-
-#LoginFrom_Facebook{
-    padding: 10px;
-    border-color:#4173B2;
-    margin: 10px 10px  10px 0px;
-    flex:3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
 
 .btns_container{
     display: flex;

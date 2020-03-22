@@ -5,7 +5,7 @@ function ProfilePage(){
 
     return(
         <div className={styles.container}>
-            Profile
+            profile
         </div>
     )
 }
