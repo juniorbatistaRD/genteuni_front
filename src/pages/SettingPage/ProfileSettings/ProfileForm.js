@@ -57,7 +57,9 @@ function ProfileForm() {
             const message =
               error.code === 202
                 ? "Este nombre de usuario ya esta en uso."
-                : `Hubo un error, ${error.message} contactanos para ayudarte!`;
+                : `Hubo un error, ${
+                    error.message ? error.message : error
+                  } contactanos para ayudarte!`;
 
             showAlert({
               type: "error",

@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../../contexts/AuthContext";
+import Parse from "parse";
 import styles from "./index.module.css";
 import Title from "../../../components/common/Title";
 import SettingOption from "../SettingOption";
@@ -10,6 +12,15 @@ import logoutIcon from "../../../assets/icons/logout.svg";
 import { navigate } from "@reach/router";
 
 function SettingsMenu() {
+  const { setCurrentUser } = useContext(AuthContext);
+
+  const logout = () => {
+    Parse.User.logOut().then(async () => {
+      await setCurrentUser(Parse.User.current());
+      navigate("/");
+    });
+  };
+
   return (
     <div className={styles.container}>
       <Title className={styles.title} text="Adjustes" />
@@ -41,16 +52,19 @@ function SettingsMenu() {
         title="Contraseña"
         description="Cambia tu Contraseña"
         icon={keyIcon}
+        onClick={() => navigate("settings/password")}
       />
       <SettingOption
         title="Facebook Login"
-        description="Enlaza tu Cuenta de FaceBook"
+        description="Administra FaceBook Login"
         icon={facebookIcon}
+        onClick={() => navigate("settings/facebook")}
       />
       <SettingOption
         title="Cerrar Sesion"
         description="Cierra sesion en este dipositivo"
         icon={logoutIcon}
+        onClick={logout}
       />
     </div>
   );

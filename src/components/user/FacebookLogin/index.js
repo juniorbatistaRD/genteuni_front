@@ -4,6 +4,7 @@ import Parse from "parse";
 import FaceBookLogo from "../../../assets/icons/facebook-circular-logo.svg";
 import styles from "./index.module.css";
 import Button from "../../common/Button";
+import initFacebook from "../../../helpers/initFacebook";
 import { AuthContext } from "../../../contexts/AuthContext";
 
 function FacebookLogin({ className }) {
@@ -11,29 +12,7 @@ function FacebookLogin({ className }) {
   const { setCurrentUser } = useContext(AuthContext);
 
   useEffect(() => {
-    window.fbAsyncInit = function() {
-      Parse.FacebookUtils.init({
-        appId: "954266884973298", // Facebook App ID
-        cookie: true, // enable cookies to allow Parse to access the session
-        xfbml: true, // initialize Facebook social plugins on the page
-        version: "v6.0" // point to the latest Facebook Graph API version
-      });
-      // Run code after the Facebook SDK is loaded.
-      // ...
-    };
-
-    // Load Facebook SDK
-    (function(d, s, id) {
-      var js,
-        fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) {
-        return;
-      }
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    })(document, "script", "facebook-jssdk");
+    initFacebook();
   }, []);
 
   const login = async () => {
@@ -58,7 +37,7 @@ function FacebookLogin({ className }) {
             user.save().then(() => {
               setCurrentUser(Parse.User.current());
               setLoading(false);
-              navigate("/home");
+              navigate("/app");
             });
           }
         );

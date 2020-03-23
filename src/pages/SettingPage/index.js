@@ -4,6 +4,8 @@ import { Router } from "@reach/router";
 import SettingsMenu from "./SettingsMenu";
 import ProfileSetting from "./ProfileSettings";
 import PictureSetting from "./PictureSettings";
+import PasswordSettings from "./PasswordSettings";
+import FacebookSettings from "./FacebookSettings";
 
 function SettingPage() {
   return (
@@ -12,6 +14,8 @@ function SettingPage() {
         <SettingsMenu path="/" />
         <ProfileSetting path="/profile" />
         <PictureSetting path="/picture" />
+        <PasswordSettings path="/password" />
+        <FacebookSettings path="/facebook" />
       </Router>
     </div>
   );
