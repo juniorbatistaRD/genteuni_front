@@ -6,7 +6,7 @@ function Avatar({ image, width, ...props }) {
   const classNames = [styles.avatar, props.className].join(" ");
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} {...props}>
       <img
         style={{
           width,

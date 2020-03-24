@@ -1,46 +1,48 @@
-import React, {useContext} from 'react'
-import {AuthContext} from '../../../contexts/AuthContext'
-import styles from './index.module.css'
-import NotificationBell from './NotificationBell'
-import MessagesBell from './MessagesBell'
-import SearchBar from '../SearchBar'
-import Logo from '../Logo'
-import Avatar from './../Avatar'
-import MenuButton from '../MenuButton'
+import React, { useContext } from "react";
+import { AuthContext } from "../../../contexts/AuthContext";
+import styles from "./index.module.css";
+import NotificationBell from "./NotificationBell";
+import MessagesBell from "./MessagesBell";
+import SearchBar from "../SearchBar";
+import Logo from "../Logo";
+import Avatar from "./../Avatar";
+import MenuButton from "../MenuButton";
+import { navigate } from "@reach/router";
 
+function NavBar() {
+  const { currentUser } = useContext(AuthContext);
 
-function NavBar(){
-    const {currentUser} = useContext(AuthContext)
+  return (
+    <div className={styles.container}>
+      <div className={styles["left-side"]}>
+        <Logo className={styles.logo} />
+        <MenuButton />
+      </div>
 
-    return (
-        <div className={styles.container}>
+      <div className={styles["search-bar-container"]}>
+        <SearchBar />
+      </div>
 
-            <div className={styles['left-side']}>
-                <Logo className={styles.logo}/>
-                <MenuButton/>
-            </div>
-
-            <div className={styles['search-bar-container']}>
-                <SearchBar/>
-            </div>
-
-            <div className={styles['right-side']}>
-                {currentUser ? (
-                    <>
-                        <NotificationBell/>
-                        <MessagesBell/>
-                        <Avatar className={styles.avatar}   image={currentUser.get('profilePicture') && currentUser.get('profilePicture').url()}/>
-                    </>
-                    ):
-                    <span>Inicia Sesion!</span>
-                    }
-            </div>
-
-        </div>
-    )
+      <div className={styles["right-side"]}>
+        {currentUser ? (
+          <>
+            <NotificationBell />
+            <MessagesBell />
+            <Avatar
+              onClick={() => navigate("/app/profile/")}
+              className={styles.avatar}
+              image={
+                currentUser.get("profilePicture") &&
+                currentUser.get("profilePicture").url()
+              }
+            />
+          </>
+        ) : (
+          <span>Inicia Sesion!</span>
+        )}
+      </div>
+    </div>
+  );
 }
 
-
-export default NavBar
-
-
+export default NavBar;

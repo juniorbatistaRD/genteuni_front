@@ -1,0 +1,76 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  background-color: #ffff;
+}
+
+.infoTop {
+  display: flex;
+  margin-bottom: 10px;
+}
+.username {
+  margin: 10px;
+  margin-bottom: 5px;
+  word-break: break-word;
+}
+.usernameInfoAndButtons {
+  width: 100%;
+}
+.infoBottom {
+  display: flex;
+  flex-direction: column;
+}
+
+.avatar {
+  margin-top: -50px;
+  margin-left: 10px;
+  align-self: flex-start;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.stats {
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* .infoBox {
+  margin: 10px auto 0px 20px;
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+} */
+
+.menu {
+  display: flex;
+  justify-content: center;
+}
+
+.menu ul {
+  overflow: scroll;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.menuOption {
+  padding: 15px;
+  font-size: 17px;
+  color: grey;
+}
+
+.menuOptionActive {
+  border-bottom: 2px solid #4173b2;
+}
