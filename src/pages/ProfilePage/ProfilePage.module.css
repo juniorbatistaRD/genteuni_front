@@ -24,7 +24,7 @@
 }
 
 .avatar {
-  margin-top: -50px;
+  margin-top: -25px;
   margin-left: 10px;
   align-self: flex-start;
 }
@@ -42,16 +42,6 @@
   display: flex;
   justify-content: space-evenly;
 }
-
-/* .infoBox {
-  margin: 10px auto 0px 20px;
-}
-
-.icon {
-  width: 15px;
-  height: 15px;
-  margin-right: 10px;
-} */
 
 .menu {
   display: flex;
