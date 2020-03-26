@@ -31,7 +31,7 @@
   Screen = B/w 320px to 767px
 */
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .search-bar-container {
     display: none;
   }

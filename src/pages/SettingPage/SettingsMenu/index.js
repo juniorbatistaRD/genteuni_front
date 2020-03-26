@@ -4,11 +4,12 @@ import Parse from "parse";
 import styles from "./index.module.css";
 import Title from "../../../components/common/Title";
 import SettingOption from "../SettingOption";
-import profileIcon from "../../../assets/icons/profile.svg";
-import cameraIcon from "../../../assets/icons/photograph.svg";
-import keyIcon from "../../../assets/icons/key.svg";
-import facebookIcon from "../../../assets/icons/facebook-out-line.svg";
-import logoutIcon from "../../../assets/icons/logout.svg";
+import { ReactComponent as ProfileIcon } from "../../../assets/icons/profile.svg";
+import { ReactComponent as CameraIcon } from "../../../assets/icons/photograph.svg";
+import { ReactComponent as SchoolIcon } from "../../../assets/icons/school.svg";
+import { ReactComponent as KeyIcon } from "../../../assets/icons/key.svg";
+import { ReactComponent as FacebookIcon } from "../../../assets/icons/facebook-out-line.svg";
+import { ReactComponent as LogoutIcon } from "../../../assets/icons/logout.svg";
 import { navigate } from "@reach/router";
 
 function SettingsMenu() {
@@ -32,15 +33,21 @@ function SettingsMenu() {
       />
       <SettingOption
         title="Perfil"
-        description="Tu informacion de Perfil"
-        icon={profileIcon}
+        description="Tu informacion de perfil"
+        Icon={ProfileIcon}
         onClick={() => navigate("settings/profile")}
       />
       <SettingOption
         title="Foto de Perfil"
         description="Cambia tu foto de perfil"
-        icon={cameraIcon}
+        Icon={CameraIcon}
         onClick={() => navigate("settings/picture")}
+      />
+      <SettingOption
+        title="Escuela"
+        description="Agrega tu escuela"
+        Icon={SchoolIcon}
+        onClick={() => navigate("settings/school")}
       />
 
       <Title
@@ -51,19 +58,19 @@ function SettingsMenu() {
       <SettingOption
         title="Contraseña"
         description="Cambia tu Contraseña"
-        icon={keyIcon}
+        Icon={KeyIcon}
         onClick={() => navigate("settings/password")}
       />
       <SettingOption
         title="Facebook Login"
         description="Administra FaceBook Login"
-        icon={facebookIcon}
+        Icon={FacebookIcon}
         onClick={() => navigate("settings/facebook")}
       />
       <SettingOption
         title="Cerrar Sesion"
         description="Cierra sesion en este dipositivo"
-        icon={logoutIcon}
+        Icon={LogoutIcon}
         onClick={logout}
       />
     </div>

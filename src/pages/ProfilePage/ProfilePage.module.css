@@ -1,4 +1,7 @@
 .container {
+  margin: 20px;
+  border-radius: 25px 25px 0px 0px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -63,4 +66,11 @@
 
 .menuOptionActive {
   border-bottom: 2px solid #4173b2;
+}
+
+@media (max-width: 767px) {
+  .container {
+    margin: 0px;
+    border-radius: 0px;
+  }
 }

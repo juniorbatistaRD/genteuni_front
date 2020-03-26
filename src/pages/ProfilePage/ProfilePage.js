@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 import styles from "./ProfilePage.module.css";
 import CoverImage from "./components/CoverImage";
 import Avatar from "../../components/common/Avatar";
@@ -12,6 +13,8 @@ import Title from "../../components/common/Title";
 import ItemWithIcon from "./components/ItemWithIcon";
 
 function ProfilePage({ user }) {
+  const { currentUser } = useContext(AuthContext);
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -29,19 +32,21 @@ function ProfilePage({ user }) {
               fontSize="18px"
               className={styles.username}
             />
-            <div className={styles.buttons}>
-              <Button padding="5px 15px" margin="0px 10px">
-                Seguir
-              </Button>
-              <Button
-                typeStyle="secondary"
-                padding="5px 15px"
-                margin="0px 10px 0px 0px"
-              >
-                Hablar
-              </Button>
-              <DotsIcon width="20px" height="20px" fill="#555" />
-            </div>
+            {currentUser && currentUser.id !== user.id && (
+              <div className={styles.buttons}>
+                <Button padding="5px 15px" margin="0px 10px">
+                  Seguir
+                </Button>
+                <Button
+                  typeStyle="secondary"
+                  padding="5px 15px"
+                  margin="0px 10px 0px 0px"
+                >
+                  Hablar
+                </Button>
+                <DotsIcon width="20px" height="20px" fill="#555" />
+              </div>
+            )}
           </div>
         </div>
         <div className={styles.infoBottom}>
@@ -53,7 +58,13 @@ function ProfilePage({ user }) {
           {user.attributes.bio && (
             <ItemWithIcon IconSVG={BioIcon} text={user.attributes.bio} />
           )}
-          <ItemWithIcon IconSVG={StudentIcon} text="NWY - No working Yet" />
+          {user.attributes.school && (
+            <ItemWithIcon
+              IconSVG={StudentIcon}
+              text={user.attributes.school.attributes.name}
+            />
+          )}
+
           {user.attributes.country && (
             <ItemWithIcon
               IconSVG={PinIcon}

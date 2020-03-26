@@ -6,6 +6,7 @@ import ProfileSetting from "./ProfileSettings";
 import PictureSetting from "./PictureSettings";
 import PasswordSettings from "./PasswordSettings";
 import FacebookSettings from "./FacebookSettings";
+import SchoolSettings from "./SchoolSettings";
 
 function SettingPage() {
   return (
@@ -16,6 +17,7 @@ function SettingPage() {
         <PictureSetting path="/picture" />
         <PasswordSettings path="/password" />
         <FacebookSettings path="/facebook" />
+        <SchoolSettings path="/school" />
       </Router>
     </div>
   );

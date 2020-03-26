@@ -1,0 +1,32 @@
+.title {
+  margin: 20px 5px;
+}
+
+.form {
+  margin: 10px;
+  display: flex;
+  align-items: baseline;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.noResults {
+  margin-top: 150px;
+}
+
+.initialBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+}

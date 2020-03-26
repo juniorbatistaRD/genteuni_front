@@ -11,15 +11,11 @@ function ProfilePageContainer() {
   const [isloading, setIsloading] = useState(true);
 
   useEffect(() => {
-    if (params.user) {
-      getUserById(params.user).then(user => {
-        setUserInfo(user);
-        setIsloading(false);
-      });
-    } else {
-      setUserInfo(currentUser);
+    const userToFetch = params.user ? params.user : currentUser.id;
+    getUserById(userToFetch).then(user => {
+      setUserInfo(user);
       setIsloading(false);
-    }
+    });
   }, [currentUser, params.user]);
 
   return !isloading && <ProfilePage user={userInfo} />;
