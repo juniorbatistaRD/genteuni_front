@@ -2,7 +2,7 @@ import React from "react";
 import { useField } from "formik";
 import styles from "./index.module.css";
 
-function InputField({ width, padding, className, ...props }) {
+function TextField({ width, padding, className, ...props }) {
   const [field] = useField(props);
 
   const classNames = [styles.input, className].join(" ");
@@ -20,9 +20,9 @@ function InputField({ width, padding, className, ...props }) {
   );
 }
 
-InputField.defaultProps = {
+TextField.defaultProps = {
   padding: "15px",
   className: " "
 };
 
-export default InputField;
+export default TextField;

@@ -17,6 +17,7 @@ const useSearchSchools = () => {
       const schools = await querySchools
         .fullText("name", query)
         .limit(10)
+        .include("country")
         .skip(0)
         .withCount()
         .find();
@@ -36,6 +37,7 @@ const useSearchSchools = () => {
     const schoolData = await querySchools
       .fullText("name", query)
       .limit(10)
+      .include("country")
       .withCount()
       .skip(startFrom + 10)
       .find();

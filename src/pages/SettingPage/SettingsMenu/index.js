@@ -6,6 +6,7 @@ import Title from "../../../components/common/Title";
 import SettingOption from "../SettingOption";
 import { ReactComponent as ProfileIcon } from "../../../assets/icons/profile.svg";
 import { ReactComponent as CameraIcon } from "../../../assets/icons/photograph.svg";
+import { ReactComponent as PhotoIcon } from "../../../assets/icons/photo.svg";
 import { ReactComponent as SchoolIcon } from "../../../assets/icons/school.svg";
 import { ReactComponent as KeyIcon } from "../../../assets/icons/key.svg";
 import { ReactComponent as FacebookIcon } from "../../../assets/icons/facebook-out-line.svg";
@@ -42,6 +43,12 @@ function SettingsMenu() {
         description="Cambia tu foto de perfil"
         Icon={CameraIcon}
         onClick={() => navigate("settings/picture")}
+      />
+      <SettingOption
+        title="Cambiar Cover"
+        description="Elegir imagen de tu cover"
+        Icon={PhotoIcon}
+        onClick={() => navigate("settings/cover")}
       />
       <SettingOption
         title="Escuela"

@@ -1,10 +1,9 @@
 import React, { useContext, useState } from "react";
 import Parse from "parse";
-import FileInput from "../../../components/common/InputField/FileInput";
+import { FileField, ErrorMessage } from "../../../components/formikFields";
 import { Formik, Form } from "formik";
 import Button from "../../../components/common/Button";
 import styles from "./PictureForm.module.css";
-import ErrorMessageInput from "../../../components/common/InputField/ErrorMessageInput";
 import { AuthContext } from "../../../contexts/AuthContext";
 import showAlert from "../../../helpers/showAlert/showAlert";
 import Avatar from "../../../components/common/Avatar";
@@ -59,12 +58,12 @@ function PictureForm() {
       >
         {props => (
           <Form className={styles.form}>
-            <FileInput
+            <FileField
               name="file"
               onChangeCallBack={onChange}
               setFieldValue={props.setFieldValue}
             />
-            <ErrorMessageInput name="file" />
+            <ErrorMessage name="file" />
             <Button type="submit" className={styles.button}>
               Subir Foto
             </Button>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import styles from "./FileInput.module.css";
+import styles from "./index.module.css";
 
-function FileInput({ setFieldValue, onChangeCallBack, ...props }) {
+function FileField({ setFieldValue, onChangeCallBack, ...props }) {
   const [fileName, setFileName] = useState(null);
 
   const onChange = event => {
@@ -26,4 +26,4 @@ function FileInput({ setFieldValue, onChangeCallBack, ...props }) {
   );
 }
 
-export default FileInput;
+export default FileField;

@@ -1,16 +1,18 @@
 import React, { useContext } from "react";
 import queryCountries from "../../../data/queryCountries";
-import SelectCountry from "./SelectCountry";
-import InputField from "../../../components/common/InputField";
+import SelectCountry from "../SelectCountry";
+import {
+  TextField,
+  TextArea,
+  SelectField,
+  ErrorMessage
+} from "../../../components/formikFields";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import Button from "../../../components/common/Button";
 import Title from "../../../components/common/Title";
 import styles from "./ProfileForm.module.css";
-import ErrorMessageInput from "../../../components/common/InputField/ErrorMessageInput";
 import { AuthContext } from "../../../contexts/AuthContext";
-import TextAreaField from "../../../components/common/InputField/TextAreaField";
-import SelectField from "../../../components/common/InputField/SelectField";
 import showAlert from "../../../helpers/showAlert/showAlert";
 
 function ProfileForm() {
@@ -72,20 +74,20 @@ function ProfileForm() {
         {props => (
           <Form className={styles.form}>
             <Title typeStyle="secondary" text="Nombre de Usuario" />
-            <InputField placeholder="Username" name="username" />
-            <ErrorMessageInput name="username" />
+            <TextField placeholder="Username" name="username" />
+            <ErrorMessage name="username" />
 
             <Title typeStyle="secondary" text="Bio" />
-            <TextAreaField
+            <TextArea
               placeholder="Inserta frase cool y motivadora"
               name="bio"
               rows="3"
             />
-            <ErrorMessageInput name="bio" />
+            <ErrorMessage name="bio" />
 
             <Title typeStyle="secondary" text="Pais" />
             <SelectCountry name="country" placeholder="Elige tu pais" />
-            <ErrorMessageInput name="country" />
+            <ErrorMessage name="country" />
 
             <Title typeStyle="secondary" text="Genero" />
             <SelectField
@@ -96,7 +98,7 @@ function ProfileForm() {
               ]}
               name="gender"
             />
-            <ErrorMessageInput name="gender" />
+            <ErrorMessage name="gender" />
 
             <Button
               className={styles.submitButton}

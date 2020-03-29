@@ -15,10 +15,12 @@ import ItemWithIcon from "./components/ItemWithIcon";
 function ProfilePage({ user }) {
   const { currentUser } = useContext(AuthContext);
 
+  console.log(user);
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <CoverImage />
+        <CoverImage imageNumber={user.attributes.coverImage} />
         <div className={styles.infoTop}>
           <Avatar
             width="125px"

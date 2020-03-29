@@ -7,10 +7,6 @@ export const getUserById = userId => {
   query.include("school");
   const user = query.get(userId);
 
-  user.then(data => {
-    console.log(data.attributes.country.attributes);
-  });
-
   return user;
 };
 

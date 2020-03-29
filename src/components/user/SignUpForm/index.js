@@ -1,13 +1,11 @@
 import React, { useContext } from "react";
 import Parse from "parse";
-import InputField from "../../common/InputField";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import Button from "../../common/Button";
 import styles from "./index.module.css";
 import FacebookLogin from "../FacebookLogin";
-import ErrorMessageInput from "../../common/InputField/ErrorMessageInput";
-import CheckBox from "../../common/InputField/CheckBox";
+import { CheckBox, TextField, ErrorMessage } from "../../formikFields";
 import { AuthContext } from "../../../contexts/AuthContext";
 import showAlert from "../../../helpers/showAlert/showAlert";
 
@@ -74,22 +72,22 @@ function SignUpForm() {
       >
         {props => (
           <Form className={styles.form}>
-            <InputField placeholder="Username" name="username" />
-            <ErrorMessageInput name="username" />
-            <InputField placeholder="Tu correo" name="email" type="email" />
-            <ErrorMessageInput name="email" />
-            <InputField
+            <TextField placeholder="Username" name="username" />
+            <ErrorMessage name="username" />
+            <TextField placeholder="Tu correo" name="email" type="email" />
+            <ErrorMessage name="email" />
+            <TextField
               placeholder="Tu codigo secreto"
               name="password"
               type="password"
             />
-            <ErrorMessageInput name="password" />
+            <ErrorMessage name="password" />
             <CheckBox name="terms" className={styles.check_box}>
               <span className={styles.terms_text}>
                 Acepto los terminos y condiciones
               </span>
             </CheckBox>
-            <ErrorMessageInput name="terms" />
+            <ErrorMessage name="terms" />
             <div className={styles.btns_container}>
               <FacebookLogin className={styles.facebook_button} />
               <Button

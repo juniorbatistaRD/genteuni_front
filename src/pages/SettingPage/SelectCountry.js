@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import SelectField from "../../../components/common/InputField/SelectField";
+import { SelectField } from "../../components/formikFields";
 import Parse from "parse";
 
 function SelectCountry(props) {

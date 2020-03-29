@@ -18,7 +18,7 @@ const SchoolItem = ({ school }) => {
         <Title text={school.attributes.name} />
         {school.attributes.country && (
           <Title
-            text={school.attributes.country.name}
+            text={school.attributes.country.attributes.name}
             typeStyle="secondary"
             fontSize="12px"
           />

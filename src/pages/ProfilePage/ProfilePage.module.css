@@ -52,7 +52,7 @@
 }
 
 .menu ul {
-  overflow: scroll;
+  overflow-x: scroll;
   list-style: none;
   display: flex;
   flex-direction: row;
