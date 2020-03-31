@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
-import { useParams } from "@reach/router";
+import { useParams } from "react-router-dom";
 import ProfilePage from "./ProfilePage";
 import { getUserById } from "../../data/queryUsers";
 

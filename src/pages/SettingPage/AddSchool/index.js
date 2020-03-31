@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Formik, Form } from "formik";
-import { navigate } from "@reach/router";
+import { useNavigate } from "react-router-dom";
 import {
   TextField,
   ErrorMessage,
@@ -16,7 +16,9 @@ import showAlert from "../../../helpers/showAlert/showAlert";
 import { AuthContext } from "../../../contexts/AuthContext";
 
 const AddSchool = () => {
+  const navigate = useNavigate();
   const { currentUser } = useContext(AuthContext);
+
   return (
     <div>
       <Title text="Agregar Escuela" className={styles.title} />

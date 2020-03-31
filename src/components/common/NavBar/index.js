@@ -7,10 +7,11 @@ import SearchBar from "../SearchBar";
 import Logo from "../Logo";
 import Avatar from "./../Avatar";
 import MenuButton from "../MenuButton";
-import { navigate } from "@reach/router";
+import { useNavigate } from "react-router-dom";
 
 function NavBar() {
   const { currentUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   return (
     <div className={styles.container}>

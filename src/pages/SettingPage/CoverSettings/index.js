@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { navigate } from "@reach/router";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import CoverImagePreview from "./CoverImagePreview";
 import { motion } from "framer-motion";
@@ -17,8 +17,9 @@ import coverPanama from "../../../assets/coverImages/6.jpg";
 import showAlert from "../../../helpers/showAlert/showAlert";
 
 function CoverSettings() {
+  const navigate = useNavigate();
   const { currentUser } = useContext(AuthContext);
-  console.log(currentUser.attributes.coverImage);
+
   return (
     <motion.div
       initial={{ x: -100 }}
