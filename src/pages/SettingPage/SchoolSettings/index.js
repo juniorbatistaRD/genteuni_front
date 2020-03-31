@@ -38,9 +38,6 @@ function SchoolSettings() {
     }
   };
 
-  console.log(startFrom + 10 < count, "Boolean");
-  console.log(startFrom, "start");
-  console.log(count, "count");
   return (
     <motion.div
       initial={{ x: -100 }}
@@ -77,15 +74,13 @@ function SchoolSettings() {
       <div className={styles.results}>
         {schools.length > 0 ? (
           <InfiniteScroll
+            className={styles.infiniteScroller}
             pageStart={startFrom}
-            loadMore={() => {
-              console.log([startFrom, "called"]);
-              loadMoreItems();
-            }}
+            loadMore={loadMoreItems}
             hasMore={startFrom + 10 < count}
             loader={
               <div className="loader" key={0}>
-                Loading ...
+                Cargando ...
               </div>
             }
           >

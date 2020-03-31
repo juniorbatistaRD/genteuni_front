@@ -138,7 +138,7 @@ function CoverSettings() {
               </RadioField>
             </div>
             <ErrorMessage name="image" />
-            <Button type="submit" loading={props.isSubmitting}>
+            <Button type="submit" margin="10px" loading={props.isSubmitting}>
               Guardar
             </Button>
           </Form>

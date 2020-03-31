@@ -20,10 +20,8 @@
   margin-top: 150px;
 }
 
-.initialBox {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.infiniteScroller {
+  width: 100%;
 }
 
 .input {

@@ -1,5 +1,4 @@
 import React from "react";
-import defaultImage from "../../../assets/images/bg_student.png";
 import styles from "./CoverImagePreview.module.css";
 
 function CoverImagePreview({ image }) {

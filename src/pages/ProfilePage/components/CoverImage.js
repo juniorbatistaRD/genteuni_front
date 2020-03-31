@@ -1,5 +1,4 @@
 import React from "react";
-import defaultImage from "../../../assets/images/bg_student.png";
 import coverDominican from "../../../assets/coverImages/1.jpg";
 import coverMexican from "../../../assets/coverImages/2.jpg";
 import coverArgentina from "../../../assets/coverImages/3.jpg";
@@ -31,6 +30,7 @@ function CoverImage({ imageNumber }) {
       break;
 
     default:
+      coverImage = coverDominican;
       break;
   }
 
