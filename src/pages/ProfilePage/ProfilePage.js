@@ -11,11 +11,10 @@ import { ReactComponent as StudentIcon } from "../../assets/icons/student.svg";
 import { ReactComponent as PinIcon } from "../../assets/icons/pin.svg";
 import Title from "../../components/common/Title";
 import ItemWithIcon from "./components/ItemWithIcon";
+import Views from "./components/Views";
 
 function ProfilePage({ user }) {
   const { currentUser } = useContext(AuthContext);
-
-  console.log(user);
 
   return (
     <div className={styles.container}>
@@ -53,7 +52,7 @@ function ProfilePage({ user }) {
         </div>
         <div className={styles.infoBottom}>
           <div className={styles.stats}>
-            <Stat text="Views" number="120" />
+            <Views user={user} />
             <Stat text="Seguidores" number="20" />
             <Stat text="Siguiendo" number="0" />
           </div>

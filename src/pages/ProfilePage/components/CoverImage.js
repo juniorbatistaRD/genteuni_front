@@ -34,7 +34,6 @@ function CoverImage({ imageNumber }) {
       break;
   }
 
-  console.log(coverImage, imageNumber);
   return (
     <div
       style={{

@@ -14,10 +14,11 @@ import useSearchSchool from "./useSearchSchools";
 import Spinner from "../../../components/common/Spinner";
 import { ReactComponent as MoonIlustration } from "../../../assets/images/moon.svg";
 import { ReactComponent as EmptyIlustration } from "../../../assets/images/empty.svg";
-import { navigate } from "@reach/router";
+import { useNavigate } from "react-router-dom";
 
 function SchoolSettings() {
   const [touched, setTouched] = useState(false);
+  const navigate = useNavigate();
   const {
     count,
     startFrom,
@@ -91,9 +92,7 @@ function SchoolSettings() {
             {!(startFrom + 10 < count) && (
               <div className={styles.addSchoolCallToAction}>
                 No encontraste tu escuela? Agregala!
-                <Button onClick={() => navigate("addschool")}>
-                  Agregar Escuela
-                </Button>
+                <Button onClick={() => navigate("add")}>Agregar Escuela</Button>
               </div>
             )}
           </InfiniteScroll>
