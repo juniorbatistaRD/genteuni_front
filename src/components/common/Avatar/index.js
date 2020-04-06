@@ -1,9 +1,17 @@
 import React from "react";
 import defaultImage from "../../../assets/images/default_avatar.jpg";
 import styles from "./index.module.css";
+import { useNavigate } from "react-router-dom";
 
-function Avatar({ image, width, ...props }) {
+function Avatar({ image, width, link, ...props }) {
   const classNames = [styles.avatar, props.className].join(" ");
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (link) {
+      navigate(`/app/profile/${link}/`);
+    }
+  };
 
   return (
     <div className={styles.container} {...props}>
@@ -15,6 +23,7 @@ function Avatar({ image, width, ...props }) {
         src={image ? image : defaultImage}
         className={classNames}
         alt="Profile Avatar"
+        onClick={handleClick}
       />
     </div>
   );

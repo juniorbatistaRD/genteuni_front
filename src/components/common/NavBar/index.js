@@ -30,7 +30,7 @@ function NavBar() {
             <NotificationBell />
             <MessagesBell />
             <Avatar
-              onClick={() => navigate("/app/profile/")}
+              onClick={() => navigate("/app/me/")}
               className={styles.avatar}
               image={
                 currentUser.get("profilePicture") &&

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import InfiniteScroll from "react-infinite-scroll-component";
 import InfiniteScroll from "react-infinite-scroller";
 import { Formik, Form } from "formik";
 import { motion } from "framer-motion";
@@ -112,9 +111,7 @@ function SchoolSettings() {
                 <Title text="No pudimos encontrar nada :(" fontSize="16px" />
                 <Title text="Intenta con otras palabras" fontSize="16px" />
                 <EmptyIlustration width="200px" height="200px" />
-                <Button onClick={() => navigate("addschool")}>
-                  Agregar Escuela
-                </Button>
+                <Button onClick={() => navigate("add")}>Agregar Escuela</Button>
               </div>
             ) : (
               <div className={styles.initialBox}>

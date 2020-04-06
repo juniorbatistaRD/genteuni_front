@@ -1,29 +1,29 @@
-import React from 'react'
-import styles from './index.module.css'
+import React from "react";
+import styles from "./index.module.css";
 
-function Title ({text,fontSize, typeStyle, className}){
+function Title({ text, fontSize, margin, typeStyle, className }) {
+  const classNames = [styles[typeStyle], className].join(" ");
 
-    const classNames = [styles[typeStyle],  className].join(' ') 
-
-    return( 
-        <p 
-            className={classNames}
-            style={{
-                fontSize
-            }}
-        >
-            {text}
-        </p>
-    )
+  return (
+    <h2
+      className={classNames}
+      style={{
+        fontSize,
+        margin
+      }}
+    >
+      {text}
+    </h2>
+  );
 }
 
 Title.defaultProps = {
-    className: ' ',
-    text:' ',
-    fontSize: null,
-    typeStyle:'primary'
-}
+  className: " ",
+  text: " ",
+  fontSize: null,
+  typeStyle: "primary"
+};
 
 //can be primary or secondary
 
-export default Title
+export default Title;

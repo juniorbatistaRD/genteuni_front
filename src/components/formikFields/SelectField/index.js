@@ -15,7 +15,7 @@ function SelectField({ options, placeholder, isLoading, className, ...props }) {
       placeholder="hi"
       disabled={isLoading}
     >
-      {placeholder && <option value={null}>{placeholder}</option>}
+      {placeholder && <option value="">{placeholder}</option>}
 
       {options &&
         options.map(option => (

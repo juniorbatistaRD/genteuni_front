@@ -15,22 +15,13 @@ function App() {
         <Routes>
           <Route path="/" element={<LandPage />} />
           <Route path="/auth/*" element={<LandPage />} />
-
           <Route path="app" element={<MainLayout />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/settings/*" element={<SettingPage />} />
-            <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/profile/:user" element={<ProfilePage />} />
+            <Route path="/me/*" element={<ProfilePage />} />
+            <Route path="/profile/:user/*" element={<ProfilePage />} />
           </Route>
         </Routes>
-        {/* <LandPage path="/" />
-        <LandPage path="/auth/*" />
-        <MainLayout path="app">
-          <HomePage path="/" />
-          <SettingPage path="/settings/*" />
-          <ProfilePage path="/profile/" />
-          <ProfilePage path="/profile/:user" />
-        </MainLayout> */}
       </Router>
     </AuthContextProvider>
   );

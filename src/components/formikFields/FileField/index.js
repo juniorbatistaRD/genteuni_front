@@ -8,7 +8,9 @@ function FileField({ setFieldValue, onChangeCallBack, ...props }) {
     const file = event.target.files[0];
     setFileName(file.name);
     setFieldValue("file", file);
-    onChangeCallBack(file);
+    if (onChangeCallBack) {
+      onChangeCallBack(file);
+    }
   };
 
   return (

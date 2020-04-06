@@ -1,7 +1,6 @@
 .container {
   margin: 20px;
-  border-radius: 25px 25px 0px 0px;
-  overflow: hidden;
+  border-radius: 15px 15px 0px 0px;
   display: flex;
   flex-direction: column;
 }
@@ -20,6 +19,8 @@
 }
 .usernameInfoAndButtons {
   width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 .infoBottom {
   display: flex;
@@ -37,7 +38,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  width: 100%;
+  margin-right: 25px;
 }
 
 .stats {
@@ -46,31 +47,23 @@
   justify-content: space-evenly;
 }
 
-.menu {
+.contentContainer {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
 }
-
-.menu ul {
-  overflow-x: scroll;
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-}
-
-.menuOption {
-  padding: 15px;
-  font-size: 17px;
-  color: grey;
-}
-
-.menuOptionActive {
-  border-bottom: 2px solid #4173b2;
-}
-
 @media (max-width: 767px) {
   .container {
     margin: 0px;
     border-radius: 0px;
+  }
+
+  .usernameInfoAndButtons {
+    flex-direction: column;
+  }
+
+  .buttons {
+    margin-right: 0px;
+    flex-wrap: wrap;
   }
 }

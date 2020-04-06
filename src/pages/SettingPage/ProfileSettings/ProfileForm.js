@@ -43,12 +43,14 @@ function ProfileForm() {
         })}
         onSubmit={async values => {
           try {
-            const country = await queryCountries.get(values.country);
-
+            let country;
+            if (values.country) {
+              country = await queryCountries.get(values.country);
+            }
             currentUser.set("bio", values.bio);
+            currentUser.set("country", country);
             currentUser.set("username", values.username);
             currentUser.set("gender", values.gender);
-            currentUser.set("country", country);
             await currentUser.save().then(() => {
               showAlert({
                 type: "success",
