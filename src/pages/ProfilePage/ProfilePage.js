@@ -86,7 +86,7 @@ function ProfilePage({ user }) {
         <Routes>
           <Route path="/" element={<PostSection />} />
           <Route path="/comments" element={<CommentSection user={user} />} />
-          <Route path="/gifts" element={<GiftSection />} />
+          <Route path="/gifts" element={<GiftSection user={user} />} />
           <Route path="/communities" element={<CommunitySection />} />
         </Routes>
       </div>
