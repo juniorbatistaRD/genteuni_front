@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
-import { navigate } from "@reach/router";
+import { useNavigate } from "react-router-dom";
 import Parse from "parse";
 import FaceBookLogo from "../../../assets/icons/facebook-circular-logo.svg";
 import styles from "./index.module.css";
@@ -10,6 +10,7 @@ import { AuthContext } from "../../../contexts/AuthContext";
 function FacebookLogin({ className }) {
   const [isLoading, setLoading] = useState(false);
   const { setCurrentUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     initFacebook();
@@ -24,7 +25,7 @@ function FacebookLogin({ className }) {
       if (!user.existed()) {
         window.FB.api(
           "/me?fields=id, name,email,gender,picture.width(480), permissions",
-          async function(response) {
+          async function (response) {
             const facebookImage = await getFacebookImage(
               response.picture.data.url,
               user
@@ -51,11 +52,11 @@ function FacebookLogin({ className }) {
     }
   };
 
-  const getFacebookImage = async url => {
+  const getFacebookImage = async (url) => {
     let response = await fetch(url);
     let data = await response.blob();
     let metadata = {
-      type: "image/jpeg"
+      type: "image/jpeg",
     };
 
     let file = new File([data], "test.jpg", metadata);

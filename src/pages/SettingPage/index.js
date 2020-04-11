@@ -9,8 +9,12 @@ import FacebookSettings from "./FacebookSettings";
 import SchoolSettings from "./SchoolSettings";
 import AddSchool from "./AddSchool";
 import CoverSettings from "./CoverSettings";
+import useScrollToTop from "../../hooks/useScrollToTop";
+import NotificationSettings from "./NotificationSettings";
 
 function SettingPage() {
+  useScrollToTop();
+
   return (
     <div className={styles.container}>
       <Routes>
@@ -22,14 +26,7 @@ function SettingPage() {
         <Route path="/school" element={<SchoolSettings />} />
         <Route path="/school/add" element={<AddSchool />} />
         <Route path="/cover" element={<CoverSettings />} />
-        {/* <SettingsMenu path="/" />
-        <ProfileSetting path="/profile" />
-        <PictureSetting path="/picture" />
-        <PasswordSettings path="/password" />
-        <FacebookSettings path="/facebook" />
-        <SchoolSettings path="/school" />
-        <AddSchool path="/addschool" />
-        <CoverSettings path="/cover" /> */}
+        <Route path="/notification" element={<NotificationSettings />} />
       </Routes>
     </div>
   );

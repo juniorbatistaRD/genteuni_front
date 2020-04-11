@@ -1,15 +1,28 @@
-import React from 'react'
-import styles from './index.module.css'
+import React, { useEffect } from "react";
+import styles from "./index.module.css";
+import Button from "../../components/common/Button";
+import usePushNotifications from "../../hooks/usePushNotification";
 
+function HomePage() {
+  const askForPermissioToReceiveNotifications = usePushNotifications();
 
-function HomePage(){
+  useEffect(() => {
+    askForPermissioToReceiveNotifications();
+  }, [askForPermissioToReceiveNotifications]);
 
-    return(
-        <div className={styles.container}>
-            <span>HomePage</span>
-        </div>
-    )
+  return (
+    <div className={styles.container}>
+      <span>HomePage</span>
+
+      <Button
+        onClick={() => {
+          // askForPermissioToReceiveNotifications();
+        }}
+      >
+        Send
+      </Button>
+    </div>
+  );
 }
 
-
-export default HomePage
+export default HomePage;

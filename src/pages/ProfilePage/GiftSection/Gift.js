@@ -1,11 +1,15 @@
 import React from "react";
 import styles from "./Gift.module.css";
 import Avatar from "../../../components/common/Avatar";
+import { motion } from "framer-motion";
 
 const Gift = ({ image, fromUser, text }) => {
-  console.log(fromUser);
   return (
-    <div className={styles.container}>
+    <motion.div
+      animate={{ y: 0 }}
+      initial={{ y: 100 }}
+      className={styles.container}
+    >
       <img src={image} alt="Gift" className={styles.image} />
       <Avatar
         image={fromUser.attributes.profilePicture?.url()}
@@ -14,7 +18,7 @@ const Gift = ({ image, fromUser, text }) => {
       />
       <span className={styles.arrow} />
       <p className={styles.text}>{text}</p>
-    </div>
+    </motion.div>
   );
 };
 

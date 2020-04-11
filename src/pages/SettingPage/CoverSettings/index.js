@@ -15,6 +15,8 @@ import coverPeru from "../../../assets/coverImages/4.jpg";
 import coverGuatemala from "../../../assets/coverImages/5.jpg";
 import coverPanama from "../../../assets/coverImages/6.jpg";
 import showAlert from "../../../helpers/showAlert/showAlert";
+import FlexRow from "../../../components/common/FlexRow";
+import GoBackButton from "../../../components/GoBackButton";
 
 function CoverSettings() {
   const navigate = useNavigate();
@@ -26,31 +28,34 @@ function CoverSettings() {
       animate={{ x: 0 }}
       className={styles.container}
     >
-      <Title text="Elegir Cover" className={styles.title} />
+      <FlexRow>
+        <GoBackButton />
+        <Title text="Elegir Cover" className={styles.title} />
+      </FlexRow>
 
       <Formik
         initialValues={{ image: currentUser.attributes.coverImage.toString() }}
-        validate={values => {
+        validate={(values) => {
           if (values.image > 6 || values.image < 1) {
             return {
-              image: "Debes selecionar una Imagen!"
+              image: "Debes selecionar una Imagen!",
             };
           }
         }}
-        onSubmit={values => {
+        onSubmit={(values) => {
           console.log(values);
           currentUser.set("coverImage", parseInt(values.image));
           currentUser.save().then(() => {
             showAlert({
               type: "success",
-              title: "Buena eleccion!"
+              title: "Buena eleccion!",
             }).then(() => {
               navigate("/app/profile");
             });
           });
         }}
       >
-        {props => (
+        {(props) => (
           <Form className={styles.form}>
             <div className={styles.images}>
               <RadioField

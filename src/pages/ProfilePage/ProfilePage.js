@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import styles from "./ProfilePage.module.css";
 import CoverImage from "./components/CoverImage";
@@ -23,6 +23,11 @@ import ProfileTabMenu from "./components/ProfileTabMenu";
 
 function ProfilePage({ user }) {
   const { currentUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [user]);
 
   return (
     <div className={styles.container}>
@@ -60,8 +65,8 @@ function ProfilePage({ user }) {
         <div className={styles.infoBottom}>
           <div className={styles.stats}>
             <Views user={user} />
-            <Followers user={user} />
-            <Following user={user} />
+            <Followers user={user} onClick={() => navigate("followers")} />
+            <Following user={user} onClick={() => navigate("following")} />
           </div>
           {user.attributes.bio && (
             <ItemWithIcon IconSVG={BioIcon} text={user.attributes.bio} />

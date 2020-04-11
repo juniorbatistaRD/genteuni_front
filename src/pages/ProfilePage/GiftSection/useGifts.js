@@ -7,7 +7,8 @@ function reducer(state, action) {
       return {
         ...state,
         gifts: [...state.gifts, ...action.payload.gifts],
-        count: action.payload.count
+        count: action.payload.count,
+        isLoading: false,
       };
 
     case "FETCH_NEXT_PAGE":
@@ -21,24 +22,23 @@ const initialState = {
   gifts: [],
   startFrom: 0,
   perPage: 10,
-  count: 0
+  count: 0,
 };
 
 function useGifts(user) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  //load initial data
   useEffect(() => {
     const getGifts = async () => {
       const data = await getUserGiftsWithPagination({
         startFrom: state.startFrom,
         perPage: 10,
-        user
+        user,
       });
 
       dispatch({
         type: "FETCH_GIFTS_SUCCESS",
-        payload: { gifts: data.results, count: data.count }
+        payload: { gifts: data.results, count: data.count },
       });
     };
 

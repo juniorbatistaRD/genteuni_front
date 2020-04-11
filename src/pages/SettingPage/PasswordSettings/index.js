@@ -6,6 +6,8 @@ import styles from "./index.module.css";
 import Title from "../../../components/common/Title";
 import Button from "../../../components/common/Button";
 import showAlert from "../../../helpers/showAlert/showAlert";
+import FlexRow from "../../../components/common/FlexRow";
+import GoBackButton from "../../../components/GoBackButton";
 
 function PasswordSettings() {
   const { currentUser } = useContext(AuthContext);
@@ -18,14 +20,14 @@ function PasswordSettings() {
         showAlert({
           type: "success",
           title: "Visita tu Correo",
-          text: "Haz click en link del correo que te enviamos"
+          text: "Haz click en link del correo que te enviamos",
         });
       })
-      .catch(error => {
+      .catch((error) => {
         showAlert({
           type: "error",
           title: "Uh no!",
-          text: "Error: " + error.code + " " + error.message
+          text: "Error: " + error.code + " " + error.message,
         });
       })
       .finally(() => setIsLoading(false));
@@ -37,7 +39,10 @@ function PasswordSettings() {
       animate={{ x: 0 }}
       className={styles.container}
     >
-      <Title text="Contraseña" className={styles.title} />
+      <FlexRow>
+        <GoBackButton />
+        <Title text="Contraseña" className={styles.title} />
+      </FlexRow>
 
       <Title
         text="Recibir correo para cambiar la contraseña"

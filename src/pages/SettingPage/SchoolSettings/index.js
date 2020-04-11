@@ -14,6 +14,8 @@ import Spinner from "../../../components/common/Spinner";
 import { ReactComponent as MoonIlustration } from "../../../assets/images/moon.svg";
 import { ReactComponent as EmptyIlustration } from "../../../assets/images/empty.svg";
 import { useNavigate } from "react-router-dom";
+import FlexRow from "../../../components/common/FlexRow";
+import GoBackButton from "../../../components/GoBackButton";
 
 function SchoolSettings() {
   const [touched, setTouched] = useState(false);
@@ -26,10 +28,10 @@ function SchoolSettings() {
     isLoading,
     schools,
     reset,
-    loadMoreItems
+    loadMoreItems,
   } = useSearchSchool();
 
-  const onSubmit = values => {
+  const onSubmit = (values) => {
     //avoid rerendering and refetching if query is the same
     if (values.search !== query) {
       reset();
@@ -44,16 +46,19 @@ function SchoolSettings() {
       animate={{ x: 0 }}
       className={styles.container}
     >
-      <Title text="Escuela" className={styles.title} />
+      <FlexRow>
+        <GoBackButton />
+        <Title text="Escuela" className={styles.title} />
+      </FlexRow>
       <Formik
         initialValues={{
-          search: ""
+          search: "",
         }}
         onSubmit={onSubmit}
         validationSchema={Yup.object({
           search: Yup.string()
             .min("1")
-            .required("Necesitas especificar el nombre")
+            .required("Necesitas especificar el nombre"),
         })}
       >
         <Form className={styles.form}>

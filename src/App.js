@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage";
 import SettingPage from "./pages/SettingPage";
 import ProfilePage from "./pages/ProfilePage";
 import MainLayout from "./layouts/MainLayout";
+import NotificationPage from "./pages/NotificationPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/settings/*" element={<SettingPage />} />
             <Route path="/me/*" element={<ProfilePage />} />
             <Route path="/profile/:user/*" element={<ProfilePage />} />
+            <Route path="/notifications" element={<NotificationPage />} />
           </Route>
         </Routes>
       </Router>

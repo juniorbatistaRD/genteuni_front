@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import {
   TextField,
   ErrorMessage,
-  RadioField
+  RadioField,
 } from "../../../components/formikFields";
 import Title from "../../../components/common/Title";
 import styles from "./index.module.css";
@@ -14,6 +14,8 @@ import SelectCountry from "../SelectCountry";
 import { saveSchool } from "../../../data/querySchools";
 import showAlert from "../../../helpers/showAlert/showAlert";
 import { AuthContext } from "../../../contexts/AuthContext";
+import FlexRow from "../../../components/common/FlexRow";
+import GoBackButton from "../../../components/GoBackButton";
 
 const AddSchool = () => {
   const navigate = useNavigate();
@@ -21,7 +23,10 @@ const AddSchool = () => {
 
   return (
     <div>
-      <Title text="Agregar Escuela" className={styles.title} />
+      <FlexRow>
+        <GoBackButton />
+        <Title text="Agregar Escuela" className={styles.title} />
+      </FlexRow>
 
       <Formik
         initialValues={{
@@ -29,7 +34,7 @@ const AddSchool = () => {
           website: "",
           typeOfSchool: "college",
           test: "",
-          country: ""
+          country: "",
         }}
         validationSchema={yup.object({
           name: yup
@@ -37,38 +42,35 @@ const AddSchool = () => {
             .min(3, "El nombre es demasiado corto")
             .max(100, "El nombre demasiado largo")
             .required("Nombre es requerido"),
-          website: yup
-            .string()
-            .trim()
-            .url(),
-          country: yup.string().required("Elige un pais")
+          website: yup.string().trim().url(),
+          country: yup.string().required("Elige un pais"),
         })}
-        onSubmit={values =>
+        onSubmit={(values) =>
           saveSchool({
             name: values.name,
             website: values.website,
             country: values.country,
-            isHighSchool: values.typeOfSchool === "highSchool" ? true : false
+            isHighSchool: values.typeOfSchool === "highSchool" ? true : false,
           })
-            .then(school => {
+            .then((school) => {
               currentUser.set("school", school);
               currentUser.save().then(() =>
                 showAlert({
                   type: "success",
-                  text: "Escuela guardada!"
+                  text: "Escuela guardada!",
                 }).then(() => navigate("/app/profile"))
               );
             })
-            .catch(err => {
+            .catch((err) => {
               showAlert({
                 type: "error",
                 title: "Uh no!",
-                text: `${err}`
+                text: `${err}`,
               });
             })
         }
       >
-        {props => (
+        {(props) => (
           <Form className={styles.form}>
             <TextField
               name="name"

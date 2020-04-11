@@ -8,7 +8,7 @@ const FollowButton = ({ userToFollow }) => {
   const [isUserFollowed, setIsUserFollowed] = useState();
 
   useEffect(() => {
-    isFollowed(currentUser, userToFollow).then(result => {
+    isFollowed(currentUser, userToFollow).then((result) => {
       setIsUserFollowed(result);
     });
   }, [currentUser, userToFollow]);
@@ -25,20 +25,22 @@ const FollowButton = ({ userToFollow }) => {
 
   return (
     <>
-      {isUserFollowed ? (
-        <Button
-          onClick={unFollow}
-          padding="5px 15px"
-          margin="0px 10px"
-          typeStyle="secondary"
-        >
-          Siguiendo
-        </Button>
-      ) : (
-        <Button onClick={follow} padding="5px 15px" margin="0px 10px">
-          Seguir
-        </Button>
-      )}
+      {currentUser &&
+        currentUser.id !== userToFollow.id &&
+        (isUserFollowed ? (
+          <Button
+            onClick={unFollow}
+            padding="5px 15px"
+            margin="0px 10px"
+            typeStyle="secondary"
+          >
+            Siguiendo
+          </Button>
+        ) : (
+          <Button onClick={follow} padding="5px 15px" margin="0px 10px">
+            Seguir
+          </Button>
+        ))}
     </>
   );
 };

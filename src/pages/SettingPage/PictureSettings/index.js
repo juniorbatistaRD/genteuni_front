@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import styles from "./index.module.css";
 import Title from "../../../components/common/Title";
 import PictureForm from "./PictureForm";
+import FlexRow from "../../../components/common/FlexRow";
+import GoBackButton from "../../../components/GoBackButton";
 
 function PictureSetting() {
   return (
@@ -11,7 +13,10 @@ function PictureSetting() {
       animate={{ x: 0 }}
       className={styles.container}
     >
-      <Title text="Tu Perfil" className={styles.title} />
+      <FlexRow alignItems="center">
+        <GoBackButton />
+        <Title text="Tu Perfil" className={styles.title} />
+      </FlexRow>
       <PictureForm />
     </motion.div>
   );

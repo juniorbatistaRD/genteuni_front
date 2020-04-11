@@ -16,7 +16,7 @@ function PictureForm() {
 
   const [previewImg, setPreviewImage] = useState(defaultImage);
 
-  const validate = values => {
+  const validate = (values) => {
     const errors = {};
 
     if (
@@ -29,7 +29,7 @@ function PictureForm() {
     return errors;
   };
 
-  const onChange = file => {
+  const onChange = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => setPreviewImage(reader.result);
@@ -40,15 +40,15 @@ function PictureForm() {
       <Avatar image={previewImg} width="250px" />
       <Formik
         initialValues={{
-          file: ""
+          file: "",
         }}
-        onSubmit={values => {
+        onSubmit={(values) => {
           const parseFile = new Parse.File("profile.jpg", values.file);
           currentUser.set("profilePicture", parseFile);
           currentUser.save().then(() => {
             showAlert({
               type: "success",
-              title: "Foto Actualizada! Se ve bien!"
+              title: "Foto Actualizada! Se ve bien!",
             }).then(() => {
               window.location.reload();
             });
@@ -56,7 +56,7 @@ function PictureForm() {
         }}
         validate={validate}
       >
-        {props => (
+        {(props) => (
           <Form className={styles.form}>
             <FileField
               name="file"
@@ -64,7 +64,11 @@ function PictureForm() {
               setFieldValue={props.setFieldValue}
             />
             <ErrorMessage name="file" />
-            <Button type="submit" className={styles.button}>
+            <Button
+              type="submit"
+              className={styles.button}
+              loading={props.isSubmitting}
+            >
               Subir Foto
             </Button>
           </Form>

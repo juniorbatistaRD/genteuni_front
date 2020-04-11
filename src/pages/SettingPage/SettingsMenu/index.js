@@ -76,6 +76,12 @@ function SettingsMenu() {
         onClick={() => navigate("facebook")}
       />
       <SettingOption
+        title="Notificaciones"
+        description="Configura las notificaciones de dispositivo"
+        Icon={FacebookIcon}
+        onClick={() => navigate("notification")}
+      />
+      <SettingOption
         title="Cerrar Sesion"
         description="Cierra sesion en este dipositivo"
         Icon={LogoutIcon}

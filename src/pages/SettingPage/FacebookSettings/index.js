@@ -7,6 +7,8 @@ import Title from "../../../components/common/Title";
 import Button from "../../../components/common/Button";
 import initFacebook from "../../../helpers/initFacebook";
 import showAlert from "../../../helpers/showAlert/showAlert";
+import FlexRow from "../../../components/common/FlexRow";
+import GoBackButton from "../../../components/GoBackButton";
 
 function FacebookSettings() {
   const { currentUser } = useContext(AuthContext);
@@ -25,14 +27,14 @@ function FacebookSettings() {
       .then(() => {
         showAlert({
           type: "success",
-          text: "Tu cuenta ha sido disvinculada de Facebook"
+          text: "Tu cuenta ha sido disvinculada de Facebook",
         });
       })
-      .catch(err =>
+      .catch((err) =>
         showAlert({
           type: "error",
           title: "Uh no",
-          text: "Intento fallido, error:" + err
+          text: "Intento fallido, error:" + err,
         })
       )
       .finally(() => {
@@ -47,14 +49,14 @@ function FacebookSettings() {
       .then(() => {
         showAlert({
           type: "success",
-          text: "Tu cuenta ha sido vinculada con Facebook"
+          text: "Tu cuenta ha sido vinculada con Facebook",
         });
       })
-      .catch(err =>
+      .catch((err) =>
         showAlert({
           type: "error",
           title: "Uh no",
-          text: "Intento fallido, error:" + err
+          text: "Intento fallido, error:" + err,
         })
       )
       .finally(() => {
@@ -69,7 +71,10 @@ function FacebookSettings() {
       animate={{ x: 0 }}
       className={styles.container}
     >
-      <Title text="Facebook Login" className={styles.title} />
+      <FlexRow>
+        <GoBackButton />
+        <Title text="Facebook Login" className={styles.title} />
+      </FlexRow>
 
       <Title
         text={

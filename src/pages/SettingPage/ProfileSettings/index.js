@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import styles from "./index.module.css";
 import Title from "../../../components/common/Title";
 import ProfileForm from "./ProfileForm";
+import FlexRow from "../../../components/common/FlexRow";
+import GoBackButton from "../../../components/GoBackButton";
 
 function ProfileSetting() {
   return (
@@ -11,7 +13,10 @@ function ProfileSetting() {
       animate={{ x: 0 }}
       className={styles.container}
     >
-      <Title text="Tu Perfil" className={styles.title} />
+      <FlexRow>
+        <GoBackButton />
+        <Title text="Tu Perfil" className={styles.title} />
+      </FlexRow>
       <ProfileForm />
     </motion.div>
   );
