@@ -2,9 +2,11 @@ import React, { useEffect } from "react";
 import styles from "./index.module.css";
 import Button from "../../components/common/Button";
 import usePushNotifications from "../../hooks/usePushNotification";
+import { useNavigate } from "react-router-dom";
 
 function HomePage() {
   const askForPermissioToReceiveNotifications = usePushNotifications();
+  const navigate = useNavigate();
 
   useEffect(() => {
     askForPermissioToReceiveNotifications();
@@ -16,7 +18,7 @@ function HomePage() {
 
       <Button
         onClick={() => {
-          // askForPermissioToReceiveNotifications();
+          navigate("/app/post");
         }}
       >
         Send

@@ -5,7 +5,6 @@ import styles from "./NotificationBell.module.css";
 import bellImg from "../../../assets/icons/notification.svg";
 import bellWithCircleImg from "../../../assets/icons/notification-with-red-circle.svg";
 import { getUnreadNumberOfNotifications } from "../../../data/queryNotifications";
-import Parse from "parse";
 
 function NotificationBell() {
   const { currentUser } = useContext(AuthContext);
@@ -31,7 +30,6 @@ function NotificationBell() {
   return (
     <div
       onClick={() => {
-        Parse.Cloud.run("readAllNotifications", {});
         navigate("/app/notifications");
       }}
     >

@@ -12,7 +12,8 @@ function TextField({ width, padding, className, ...props }) {
       className={classNames}
       style={{
         width,
-        padding
+        padding,
+        ...props.style,
       }}
       {...field}
       {...props}
@@ -22,7 +23,7 @@ function TextField({ width, padding, className, ...props }) {
 
 TextField.defaultProps = {
   padding: "15px",
-  className: " "
+  className: " ",
 };
 
 export default TextField;

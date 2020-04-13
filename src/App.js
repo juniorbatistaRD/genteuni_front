@@ -8,6 +8,8 @@ import SettingPage from "./pages/SettingPage";
 import ProfilePage from "./pages/ProfilePage";
 import MainLayout from "./layouts/MainLayout";
 import NotificationPage from "./pages/NotificationPage";
+import PostPage from "./pages/PostPage";
+import OpenPostPage from "./pages/OpenPostPage";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route path="/auth/*" element={<LandPage />} />
           <Route path="app" element={<MainLayout />}>
             <Route path="/" element={<HomePage />} />
+            <Route path="/post" element={<PostPage />} />
+            <Route path="/post/:id" element={<OpenPostPage />} />
             <Route path="/settings/*" element={<SettingPage />} />
             <Route path="/me/*" element={<ProfilePage />} />
             <Route path="/profile/:user/*" element={<ProfilePage />} />
